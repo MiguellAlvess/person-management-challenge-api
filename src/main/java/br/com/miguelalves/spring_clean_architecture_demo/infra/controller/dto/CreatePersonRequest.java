@@ -7,48 +7,9 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class CreatePersonRequest {
-    @NotBlank
-    private String name;
-
-    @NotNull
-    private LocalDate birthDate;
-
-    @NotBlank
-    private String cpf;
-
-    @Valid
-    private List<AddressRequest> addresses;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public List<AddressRequest> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<AddressRequest> addresses) {
-        this.addresses = addresses;
-    }
+public record CreatePersonRequest(
+        @NotBlank String name,
+        @NotNull LocalDate birthDate,
+        @NotBlank String cpf,
+        @Valid List<AddressRequest> addresses) {
 }
