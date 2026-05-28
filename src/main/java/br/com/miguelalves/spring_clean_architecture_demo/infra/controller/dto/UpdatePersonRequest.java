@@ -6,47 +6,9 @@ import java.util.List;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 
-public class UpdatePersonRequest {
-    @NotBlank
-    private String name;
-
-    private LocalDate birthDate;
-
-    @NotBlank
-    private String cpf;
-
-    @Valid
-    private List<AddressRequest> addresses;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public List<AddressRequest> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<AddressRequest> addresses) {
-        this.addresses = addresses;
-    }
+public record UpdatePersonRequest(
+        @NotBlank String name,
+        LocalDate birthDate,
+        @NotBlank String cpf,
+        @Valid List<AddressRequest> addresses) {
 }
